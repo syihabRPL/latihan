@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Scoreboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #282c34;
+            color: #fff;
+        }
+        .scoreboard {
+            display: inline-block;
+            padding: 20px;
+            background-color: #444;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        .team {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .score {
+            font-size: 48px;
+            margin: 10px 0;
+        }
+        .buttons {
+            margin: 10px 0;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 5px;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #21a1f1;
+        }
+        .reset {
+            margin-top: 20px;
+            background-color: #ff4c4c;
+        }
+        .reset:hover {
+            background-color: #e60000;
+        }
+    </style>
+</head>
+<body>
+    <div class="scoreboard">
+        <div class="team" id="team1">Home</div>
+        <div class="score" id="score1">0</div>
+        <div class="buttons">
+            <button onclick="increaseScore('score1', 1)">+1</button>
+            <button onclick="increaseScore('score1', 2)">+2</button>
+            <button onclick="increaseScore('score1', 3)">+3</button>
+        </div>
+        <div class="team" id="team2">Away</div>
+        <div class="score" id="score2">0</div>
+        <div class="buttons">
+            <button onclick="increaseScore('score2', 1)">+1</button>
+            <button onclick="increaseScore('score2', 2)">+2</button>
+            <button onclick="increaseScore('score2', 3)">+3</button>
+        </div>
+        <button class="reset" onclick="resetScores()">Reset</button>
+    </div>
+
+    <script>
+        function increaseScore(team, points) {
+            let score = document.getElementById(team).innerText;
+            score = parseInt(score) + points;
+            document.getElementById(team).innerText = score;
+        }
+
+        function resetScores() {
+            document.getElementById('score1').innerText = 0;
+            document.getElementById('score2').innerText = 0;
+        }
+    </script>
+</body>
+</html>
